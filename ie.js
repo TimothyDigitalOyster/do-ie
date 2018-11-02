@@ -16,8 +16,8 @@ var observer = new MutationObserver(function(mutations) {
         		var forFind = /for=\"(.*?)\"/g.exec(value);
         		$("#container_"+forFind[1]+" label.error").remove();
 				$('#'+forFind[1]).after(value);
-  				standardise(forFind[1]);
-                //console.log("mUpdates:"+forFind[1]);
+  				  standardise(forFind[1]);
+            //console.log("mUpdates:"+forFind[1]);
       			updates.observe(document.querySelector(".content [for='"+forFind[1]+"']"), {
 		  			attributes: true,
 		  			childList: false,
@@ -47,4 +47,4 @@ observer.observe(list, {
 });
 
 //TODO: Rewrite to either include new link or include inline.
-$('head').append('<link rel="stylesheet" type="text/css">.lp-pom-form-field label.error {display: inline-block;position: relative;top: 52px;width: 100%;text-align: left;color:red;}.lp-pom-form-field input.error, .lp-pom-form-field select.error {border:2px solid red !important;}.lp-form-errors {display: none !important;}');
+$('head').append('<style>.lp-pom-form-field label.error {display: inline-block;position: relative;top: 52px;width: 100%;text-align: left;color:red;}.lp-pom-form-field input.error, .lp-pom-form-field select.error {border:2px solid red !important;}.lp-form-errors {display: none !important;}</style>');
