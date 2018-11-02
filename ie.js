@@ -17,7 +17,7 @@ var observer = new MutationObserver(function(mutations) {
         		$("#container_"+forFind[1]+" label.error").remove();
 				$('#'+forFind[1]).after(value);
   				standardise(forFind[1]);
-                console.log("mUpdates:"+forFind[1]);
+                //console.log("mUpdates:"+forFind[1]);
       			updates.observe(document.querySelector(".content [for='"+forFind[1]+"']"), {
 		  			attributes: true,
 		  			childList: false,
@@ -30,7 +30,7 @@ var observer = new MutationObserver(function(mutations) {
 
 var updates = new MutationObserver(function(mutations) {
   mutations.forEach(function(mutation) {
-    console.log(mutation);
+    //console.log(mutation);
     var error_id = mutation.target.control.id;
   	//console.log("mChange:"+error_id);
     var error_html = mutation.target.outerHTML;
@@ -47,4 +47,4 @@ observer.observe(list, {
 });
 
 //TODO: Rewrite to either include new link or include inline.
-$('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', 'https://timothydigitaloyster.github.io/UnbounceMutantErrors/main.css') );
+$('head').append('<link rel="stylesheet" type="text/css">.lp-pom-form-field label.error {display: inline-block;position: relative;top: 52px;width: 100%;text-align: left;color:red;}.lp-pom-form-field input.error, .lp-pom-form-field select.error {border:2px solid red !important;}.lp-form-errors {display: none !important;}');
