@@ -30,7 +30,8 @@ var observer = new MutationObserver(function(mutations) {
 
 var updates = new MutationObserver(function(mutations) {
   mutations.forEach(function(mutation) {
-    //console.log(mutation);
+    console.log(mutation);
+    //TODO: Need to fix "ie.js:34 Uncaught TypeError: Cannot read property 'id' of null"
     var error_id = mutation.target.control.id;
   	//console.log("mChange:"+error_id);
     var error_html = mutation.target.outerHTML;
@@ -46,5 +47,5 @@ observer.observe(list, {
   	characterData: true
 });
 
-//TODO: Rewrite to either include new link or include inline.
+
 $('<style>.lp-pom-form-field label.error {display: inline-block;position: relative;top: 52px;width: 100%;text-align: left;color:red;}.lp-pom-form-field input.error, .lp-pom-form-field select.error {border:2px solid red !important;}.lp-form-errors {display: none !important;}</style>').appendTo($('head'));
