@@ -15,7 +15,7 @@ var observer = new MutationObserver(function(mutations) {
       		list_values.forEach(function(value) {
         		var forFind = /for=\"(.*?)\"/g.exec(value);
         		$("#container_"+forFind[1]+" label.error").remove();
-				$('#'+forFind[1]).after(value);
+				    $('#'+forFind[1]).after(value);
   				  standardise(forFind[1]);
             //console.log("mUpdates:"+forFind[1]);
       			updates.observe(document.querySelector(".content [for='"+forFind[1]+"']"), {
@@ -29,19 +29,17 @@ var observer = new MutationObserver(function(mutations) {
 });
 
 var updates = new MutationObserver(function(mutations) {
-  if (mutations != null) {
-    mutations.forEach(function(mutation) {
-      console.log(mutation);
-      //TODO: Need to fix "ie.js:34 Uncaught TypeError: Cannot read property 'id' of null"
+  mutations.forEach(function(mutation) {
+    //console.log(mutation);
+    //TODO: Need to fix "ie.js:34 Uncaught TypeError: Cannot read property 'id' of null"
 
-      var error_id = mutation.target.control.id;
-  	   //console.log("mChange:"+error_id);
-       var error_html = mutation.target.outerHTML;
-       $("#container_"+error_id+" label.error").remove();
-       $('#'+error_id).after(error_html);
-  	   standardise(error_id);
-    });
-  }
+    var error_id = mutation.target.control.id;
+	   //console.log("mChange:"+error_id);
+     var error_html = mutation.target.outerHTML;
+     $("#container_"+error_id+" label.error").remove();
+     $('#'+error_id).after(error_html);
+	   standardise(error_id);
+  });
 });
 
 observer.observe(list, {
