@@ -30,10 +30,15 @@ var observer = new MutationObserver(function(mutations) {
 
 var updates = new MutationObserver(function(mutations) {
   mutations.forEach(function(mutation) {
+    var error_id;
     //console.log(mutation);
     //TODO: Need to fix "ie.js:34 Uncaught TypeError: Cannot read property 'id' of null"
+    if (mutation.target.control.id == '') {
+      error_id = mutation.target.control.htmlFor;
+    } else {
+      error_id = mutation.target.control.id;
+    }
 
-    var error_id = mutation.target.control.id;
 	   //console.log("mChange:"+error_id);
      var error_html = mutation.target.outerHTML;
      $("#container_"+error_id+" label.error").remove();
