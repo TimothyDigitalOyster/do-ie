@@ -39,13 +39,13 @@ var updates = new MutationObserver(function(mutations) {
       error_id = mutation.target.htmlFor;
       error_html = mutation.target.outerHTML;
       //console.log('id:'+error_id+" errorHtml:"+error_html);
-      //$("#container_"+error_id+" label.error").remove();
+      $("#container_"+error_id+" label.error").remove();
       $('#group_'+error_id).after(error_html);
  	    standardise(error_id);
     } else {
       error_id = mutation.target.control.id;
       error_html = mutation.target.outerHTML;
-      //$("#container_"+error_id+" label.error").remove();
+      $("#container_"+error_id+" label.error").remove();
       $('#'+error_id).after(error_html);
  	    standardise(error_id);
     }
