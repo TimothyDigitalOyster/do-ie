@@ -15,13 +15,12 @@ var observer = new MutationObserver(function(mutations) {
     if (typeof list_values != 'undefined') {
       list_values.forEach(function(value) {
         var forFind = /for=\"(.*?)\"/g.exec(value);
-        if ("#container_"+forFind[1].length) {
-          $("#container_"+forFind[1]+" label.error").remove();
-  			  $('#'+forFind[1]).after(value);
-        } else {
+        if ("#group_"+forFind[1].length) {
           $("#container_"+forFind[1]+" label.error").remove();
           $('#group_'+forFind[1]).after(value);
-
+        } else {
+          $("#container_"+forFind[1]+" label.error").remove();
+  			  $('#'+forFind[1]).after(value);
         }
 
     		standardise(forFind[1]);
