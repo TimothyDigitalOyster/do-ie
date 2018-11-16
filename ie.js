@@ -7,18 +7,23 @@ var standardise = function(id) {
 }
 var observer = new MutationObserver(function(mutations) {
   console.info("Change");
-  console.log(mutations);
+
   mutations.forEach(function(mutation) {
+    console.log(mutation);
     if (mutation.type === 'childList' ) {
       var list_values = [].slice.call(list.children).map( function(node) { return node.innerHTML; });
     }
     if (typeof list_values != 'undefined') {
       list_values.forEach(function(value) {
+
         var forFind = /for=\"(.*?)\"/g.exec(value);
+        console.log(forFind[1]);
         if ("#group_"+forFind[1].length) {
+          console.log("group");
           $("#container_"+forFind[1]+" label.error").remove();
           $('#group_'+forFind[1]).after(value);
         } else {
+          console.log("else");
           $("#container_"+forFind[1]+" label.error").remove();
   			  $('#'+forFind[1]).after(value);
         }
@@ -65,4 +70,4 @@ observer.observe(list, {
   characterData: true
 });
 
-$('<style>.lp-pom-form-field label.error {display: inline-block;position: relative;top: 52px;width: 100%;text-align: left;color:red;}.lp-pom-form-field input.error, .lp-pom-form-field select.error {border:2px solid red !important;}.lp-form-errors {display: none !important;}</style>').appendTo($('head'));
+$('<style>.lp-pom-form-field label.error {display: inline-block;position: relative;top: 52px;width: 100%;text-align: left;color:red;}.lp-pom-form-field input.error, .lp-pom-form-field select.error {border:2px solid red !important;}.lp-form-errors {display: block !important;}</style>').appendTo($('head'));
