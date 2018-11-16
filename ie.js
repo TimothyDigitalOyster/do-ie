@@ -20,7 +20,7 @@ var observer = new MutationObserver(function(mutations) {
         console.log(forFind[1]);
         console.info(value);
         if ("#group_"+forFind[1].length > 0) {
-          console.log("group");
+          console.log("group" + "#group_"+forFind[1].length);
           $("#container_"+forFind[1]+" label.error").remove();
           $('#group_'+forFind[1]).after(value);
         } else {
