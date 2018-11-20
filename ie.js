@@ -14,7 +14,7 @@ var observer = new MutationObserver(function(mutations) {
     if (typeof list_values != 'undefined') {
       list_values.forEach(function(value) {
         var forFind = /for=\"(.*?)\"/g.exec(value);
-        console.log(forFind[1]);
+        console.log("#group_"+forFind[1].length);
         if ("#group_"+forFind[1].length > 0) {
           $("#container_"+forFind[1]+" label.error").remove();
           $('#group_'+forFind[1]).after(value);
