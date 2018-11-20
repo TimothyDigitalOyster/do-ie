@@ -17,11 +17,11 @@ var observer = new MutationObserver(function(mutations) {
 
         var group = "#group_"+forFind[1];
         if ($(group).length > 0) {
-          console.log("group " + group);
+          //console.log("group " + group);
           $("#container_"+forFind[1]+" label.error").remove();
           $(group).after(value);
         } else {
-          console.log("#container_"+forFind[1]);
+          //console.log("#container_"+forFind[1]);
           $("#container_"+forFind[1]+" label.error").remove();
   			  $('#'+forFind[1]).after(value);
         }
