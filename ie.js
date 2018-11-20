@@ -32,7 +32,7 @@ var observer = new MutationObserver(function(mutations) {
 });
 
 var updates = new MutationObserver(function(mutations) {
-  $("form label.error").remove();
+  //$("form label.error").remove();
   mutations.forEach(function(mutation) {
     var error_id, error_html;
     //console.log(mutation);
