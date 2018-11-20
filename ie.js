@@ -16,7 +16,7 @@ var observer = new MutationObserver(function(mutations) {
         var forFind = /for=\"(.*?)\"/g.exec(value);
 
         var group = "#group_"+forFind[1];
-        if (group.length > 0) {
+        if ($(group).length > 0) {
           console.log("group " + group);
           $("#container_"+forFind[1]+" label.error").remove();
           $(group).after(value);
