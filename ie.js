@@ -14,7 +14,7 @@ var observer = new MutationObserver(function(mutations) {
     if (typeof list_values != 'undefined') {
       list_values.forEach(function(value) {
         var forFind = /for=\"(.*?)\"/g.exec(value);
-        console.log("#group_"+forFind[1].length);
+
         var group = "#group_"+forFind[1];
         if (group.length > 0) {
           $(group+" label.error").remove();
@@ -61,4 +61,4 @@ observer.observe(list, {
   characterData: true
 });
 
-$('<style>.lp-pom-form-field label.error {display: inline-block;position: relative;top: 52px;width: 100%;text-align: left;color:red;}.lp-pom-form-field input.error, .lp-pom-form-field select.error {border:2px solid red !important;}.lp-form-errors {display: block !important;}</style>').appendTo($('head'));
+$('<style>.lp-pom-form-field label.error {display: inline-block;position: relative;top: 52px;width: 100%;text-align: left;color:red;}.lp-pom-form-field input.error, .lp-pom-form-field select.error {border:2px solid red !important;}.lp-form-errors {display: none !important;}</style>').appendTo($('head'));
