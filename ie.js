@@ -7,12 +7,14 @@ var standardise = function(id) {
 }
 var observer = new MutationObserver(function(mutations) {
   mutations.forEach(function(mutation) {
+
     if (mutation.type === 'childList' ) {
       var list_values = [].slice.call(list.children).map( function(node) { return node.innerHTML; });
     }
     if (typeof list_values != 'undefined') {
       list_values.forEach(function(value) {
         var forFind = /for=\"(.*?)\"/g.exec(value);
+        console.log(forFind[1]);
         if ("#group_"+forFind[1].length > 0) {
           $("#container_"+forFind[1]+" label.error").remove();
           $('#group_'+forFind[1]).after(value);
